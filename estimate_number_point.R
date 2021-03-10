@@ -78,6 +78,32 @@ ggplot(number_df_100, aes(x = number, y = count, fill = method)) +
     scale_x_continuous(limits = c(0.5, 8.5), breaks=1:8) +
     # scale_y_continuous(limits = c(0, 100)) + 
     scale_fill_viridis_d()
+
+## simplified and clean version
+method_name <- c("STS", "NKS", "DGP beta(1, 1)", "DGP beta(2, 3)")
+number_df_100 <- data.frame("number" = rep(1:8, 4),
+                            "method" = rep(method_name, each = 8),
+                            "count" = c(number_kovac_100,
+                                        number_nks_100,
+                                        number_dgp_100,
+                                        number_dgp_beta_2_3_100))
+
+png("./img/freq100.png", width = 480, height = 480)
+
+ggplot(number_df_100, aes(x = number, y = count, fill = method)) + 
+    geom_bar(stat = "identity", position = "dodge") + 
+    labs(x = "Number of local extrema",
+         y = "Count",
+         title = "Sample size is 100",
+         fill = "Method") +
+    scale_x_continuous(limits = c(0.5, 8.5), breaks=1:8) +
+    # scale_y_continuous(limits = c(0, 100)) + 
+    scale_fill_viridis_d() +
+    theme_bw()
+
+dev.off()
+
+
 # -------
 number_df_500 <- data.frame("number" = rep(1:8, 6),
                            "method" = rep(method_name, each = 8),
@@ -96,6 +122,33 @@ ggplot(number_df_500, aes(x = number, y = count, fill = method)) +
          fill = "Method") +
     scale_x_continuous(limits = c(0.5, 8.5), breaks=1:8) +
     scale_fill_viridis_d()
+
+
+## simplified and clean version
+method_name <- c("STS", "NKS", "DGP beta(1, 1)", "DGP beta(2, 3)")
+number_df_500 <- data.frame("number" = rep(1:8, 4),
+                            "method" = rep(method_name, each = 8),
+                            "count" = c(number_kovac_500,
+                                        number_nks_500,
+                                        number_dgp_500,
+                                        number_dgp_beta_2_3_500))
+
+
+png("./img/freq500.png", width = 480, height = 480)
+
+ggplot(number_df_500, aes(x = number, y = count, fill = method)) + 
+    geom_bar(stat = "identity", position = "dodge") + 
+    labs(x = "Number of local extrema",
+         y = "Count",
+         title = "Sample size is 500",
+         fill = "Method") +
+    scale_x_continuous(limits = c(0.5, 8.5), breaks=1:8) +
+    # scale_y_continuous(limits = c(0, 100)) + 
+    scale_fill_viridis_d() +
+    theme_bw()
+
+dev.off()
+
 # -------
 
 number_df_1000 <- data.frame("number" = rep(1:8, 6),
@@ -116,7 +169,29 @@ ggplot(number_df_1000, aes(x = number, y = count, fill = method)) +
     scale_x_continuous(limits = c(0.5, 8.5), breaks=1:8) +
     scale_fill_viridis_d()
 
+## simplified and clean version
+method_name <- c("STS", "NKS", "DGP beta(1, 1)", "DGP beta(2, 3)")
+number_df_1000 <- data.frame("number" = rep(1:8, 4),
+                            "method" = rep(method_name, each = 8),
+                            "count" = c(number_kovac_1000,
+                                        number_nks_1000,
+                                        number_dgp_1000,
+                                        number_dgp_beta_2_3_1000))
 
+png("./img/freq1000.png", width = 480, height = 480)
+
+ggplot(number_df_1000, aes(x = number, y = count, fill = method)) + 
+    geom_bar(stat = "identity", position = "dodge") + 
+    labs(x = "Number of local extrema",
+         y = "Count",
+         title = "Sample size is 1000",
+         fill = "Method") +
+    scale_x_continuous(limits = c(0.5, 8.5), breaks=1:8) +
+    # scale_y_continuous(limits = c(0, 100)) + 
+    scale_fill_viridis_d() +
+    theme_bw()
+
+dev.off()
 
 
 ## maybe this
